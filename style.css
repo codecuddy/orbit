@@ -1,0 +1,236 @@
+/* Orbiting Planet Animation */
+
+
+
+/*STAR ANIMATION*/
+
+@-webkit-keyframes starPulse {
+    from    { opacity: 1; }
+    to      { opacity: 0.2; }
+}
+
+@-moz-keyframes starPulse {
+    from    { opacity: 1; }
+    to      { opacity: 0.2; }
+}
+
+@-o-keyframes starPulse {
+    from    { opacity: 1; }
+    to      { opacity: 0.2; }
+}
+
+@keyframes starPulse{
+    from    { opacity: 1; }
+    to      { opacity: 0.2; }
+}
+
+
+/*SUN ANIMATION*/
+
+@-webkit-keyframes sunFire{
+    from { 
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {         
+        
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+@-moz-keyframes sunFire{
+    from { 
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {         
+        
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+@-o-keyframes sunFire{
+    from { 
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {         
+        
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+@keyframes sunFire{
+    from { 
+        -webkit-box-shadow: 0 0 50px #f5c91a;
+        -moz-box-shadow: 0 0 50px #f5c91a;
+        box-shadow: 0 0 50px #f5c91a;
+    }
+    to {         
+        
+        -webkit-box-shadow: 0 0 100px #f5c91a;
+        -moz-box-shadow: 0 0 100px #f5c91a;
+        box-shadow: 0 0 100px #f5c91a;
+    }
+}
+
+/*SPIN ANIMATION*/
+
+@-webkit-keyframes spin {
+    from { transform: rotate(0); }
+    to   { transform: rotate(360deg);}
+}
+
+@-moz-keyframes spin {
+    from { transform: rotate(0); }
+    to   { transform: rotate(360deg);}
+}
+
+@-o-keyframes spin {
+    from { transform: rotate(0); }
+    to   { transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: rotate(0); }
+    to   { transform: rotate(360deg);}
+}
+
+
+/*STYLE*/
+
+html, body {
+    height: 100%;       /* full height and width because we're adding photo/background */
+    width: 100%;
+}
+
+#universe {
+    background: black;                                  /*fallback to black if none below                                                           work*/
+    background: -webkit-radial-gradient(#555, #000);    /*chrome*/
+    background: -moz-radial-gradient(#555, #000);       /*mozilla*/
+    background: -o-radial-gradient(#555, #000);         /*opra (old version, new is covered in                                                      webkit*/
+    background: radial-gradient(#555, #000);            /*default CSS3*/
+}
+
+#stars {
+    position: relative;     /*can stay relative to top left corner*/
+    z-index: 2;
+    height: 100%;                                       /*created in photoshop*/
+    width: 100%;
+    background: url(images/stars.png);
+    
+    -webkit-animation: starPulse 4s infinite alternate;
+    -moz-animation: starPulse 4s infinite alternate;
+    -o-animation: starPulse 4s infinite alternate;
+    animation: starPulse 4s infinite alternate;
+}
+
+#sun {
+    position: absolute;     /*we want to move it to the center of page*/
+    top: 50%;
+    left: 50%;
+    z-index: 4;             /* put higher # than starts so its on top of it*/
+    margin-top: -100px;     /*do this to center the sun, use half of height*/
+    margin-left: -100px;    /*bc top left corner was in center of screen not sun*/
+    height: 200px;
+    width: 200px;
+    background: orange;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+    background: -webkit-radial-gradient(#f5c313, #ec7e08);    /*chrome*/
+    background: -moz-radial-gradient(#f5c313, #ec7e08);       /*mozilla*/
+    background: -o-radial-gradient(#f5c313, #ec7e08);         /*opra (old version, new is                                                               covered in webkit*/
+    background: radial-gradient(#f5c313, #ec7e08);            /*default CSS3*/
+    
+    /*give sun a glow/shadow*/
+    -webkit-box-shadow: 0 0 50px #f5c91a;
+    -moz-box-shadow: 0 0 50px #f5c91a;
+    box-shadow: 0 0 50px #f5c91a;
+    
+    -webkit-animation: sunFire 4s infinite alternate;
+    -moz-animation: sunFire 4s infinite alternate;
+    -o-animation: sunFire 4s infinite alternate;
+    animation: sunFire 4s infinite alternate;
+}
+
+#earthOrbit {
+    /* border: solid 1px red; can see the orbit of the earth */
+    
+    position: absolute;     /*we want to move it to the center of page*/
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+    z-index: 4;
+    height: 700px;
+    width: 600px;                   /*different from height to make it egg shaped not round*/
+    
+    -webkit-border-radius: 100%;    /*orbit of earth to round instead of square*/
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    
+    -webkit-animation: spin 35s linear infinite;
+    -moz-animation: spin 35s linear infinite;
+    -o-animation: spin 35s linear infinite;
+    animation: spin 35s linear infinite;
+}
+
+#earth {
+    position: absolute;     /*move earth inside the orbit*/
+    top: 50%;
+    margin-top: -40px;      /*center earth on the orbit*/
+    margin-left: -40px;
+    
+    -webkit-animation: spin 3s linear infinite;
+    -moz-animation: spin 3s linear infinite;
+    -o-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#moonOrbit {
+    /*border: solid 1px red;     can see orbit of moon */
+    
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 0;
+    margin-top: -60px;
+    margin-left: -60px;
+    
+    -webkit-border-radius: 100%;    /*orbit of moon to round instead of square*/
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    
+    -webkit-animation: spin 4s linear infinite reverse;
+    -moz-animation: spin 4s linear infinite reverse;
+    -o-animation: spin 4s linear infinite reverse;
+    animation: spin 4s linear infinite reverse;
+    
+}
+
+#moon {
+    height: 20px;
+    width: 20px;
+    
+    background: gray;
+    background: -webkit-radial-gradient(#ddd, #888);
+    background: -moz-radial-gradient(#ddd, #888);
+    background: radial-gradient(#ddd, #888);
+    
+    -webkit-border-radius: 100%;    /*orbit of moon to round instead of square*/
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
